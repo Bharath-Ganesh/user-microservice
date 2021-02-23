@@ -2,6 +2,7 @@ package com.xyz.user.entity.request.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 
@@ -17,6 +18,11 @@ public class UserLoginRequestTest {
 		assertEquals(userLoginRequest.getPassword(), "1234");
 		assertEquals(userLoginRequest.getUsername(), "XYZ");
 		assertNotNull(userLoginRequest);
+	}
+
+	@Test
+	void test() {
+		fail("Not yet implemented");
 	}
 
 }
