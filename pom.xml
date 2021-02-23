@@ -17,6 +17,10 @@
 
 	<properties>
 		<java.version>11</java.version>
+		<sonar.language>java</sonar.language>
+		<sonar.host.url>http://localhost:9000</sonar.host.url>
+		<sonar.projectKey>usermicroservice</sonar.projectKey>
+		<sonar.projectName>usermicroservice_local</sonar.projectName>
 	</properties>
 
 	<dependencies>
