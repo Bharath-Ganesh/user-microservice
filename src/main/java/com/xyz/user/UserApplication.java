@@ -30,7 +30,7 @@ public class UserApplication {
 
 	private static ApiInfo apiInfo() {
 		return new ApiInfo("User Microservice",
-				"XYZ User Microservice manages the profile of both admnin users and delivery agents of the back office. Admin users are those who uses and manages the XYZ parcel delivery system based on thier roles associated with user microservice. Delivery agent are users who uses this platform to view their assigned orders. Following are the api's which are a part of user microservice \r\n"
+				"XYZ User Microservice manages the profile of both admin users and delivery agents of the back office. Admin users are those who uses and manages the XYZ parcel delivery system based on thier roles associated with user microservice. Delivery agent are users who uses this platform to view their assigned orders. Following are the api's which are a part of user microservice \r\n"
 						
 
 					,
