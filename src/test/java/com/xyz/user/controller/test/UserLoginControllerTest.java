@@ -29,11 +29,9 @@
 //	@Mock
 //	private UserLoginInService loginInService;
 //
-//	
-//
-//	//@Test
+//	@Test
 //	public void testLogin() throws UserServiceException {
-//		UserResponse userResponse=new UserResponse();
+//		UserResponse userResponse = new UserResponse();
 //		UserLoginRequest userLoginRequest = new UserLoginRequest();
 //		userLoginRequest.setPassword("MTI0NA==");
 //		userLoginRequest.setUsername("xyz65");
