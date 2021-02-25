@@ -16,10 +16,10 @@
 	<description>This microservice will enable a user to login as well register</description>
 
 	<properties>
-		<java.version>11</java.version>
+		<java.version>1.8</java.version>
 		<sonar.language>java</sonar.language>
 		<sonar.host.url>http://localhost:9000</sonar.host.url>
-		<sonar.projectKey>usermicroservice</sonar.projectKey>
+		<sonar.projectKey>admin</sonar.projectKey>
 		<sonar.projectName>usermicroservice_local</sonar.projectName>
 	</properties>
 
@@ -89,23 +89,21 @@
 
 	<build>
 		<plugins>
-			<!-- <plugin> <groupId>org.sonarsource.scanner.maven</groupId> <artifactId>sonar-maven-plugin</artifactId> 
-				<version>3.4.0.905</version> <version>3.8.0.2131</version> </plugin> -->
 
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<!-- <configuration> <append>true</append> <excludes></excludes> </configuration> -->
+				<version>0.8.6</version>
 				<executions>
 					<execution>
-						<id>jacoco-initialize</id>
+						<id>default-prepare-agent</id>
 						<goals>
 							<goal>prepare-agent</goal>
 						</goals>
 					</execution>
 					<execution>
-						<id>jacoco-site</id>
-						<phase>install</phase>
+						<id>default-report</id>
+						<phase>prepare-package</phase>
 						<goals>
 							<goal>report</goal>
 						</goals>
@@ -113,13 +111,6 @@
 				</executions>
 			</plugin>
 
-
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-
-			<!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
 			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
@@ -129,18 +120,6 @@
 		</plugins>
 	</build>
 
-	<profiles>
-		<profile>
-			<id>sonarqube-dev</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<properties>
-				<sonar.host.url>http://localhost:9000/</sonar.host.url>
-			</properties>
-		</profile>
-
-	</profiles>
 
 	<!-- <distributionManagement> <repository> <id>artifactory</id> <name>User_microservice_XYZ</name> 
 		<url>http://localhost:8081/artifactory/User_microservice_XYZ</url> </repository> 

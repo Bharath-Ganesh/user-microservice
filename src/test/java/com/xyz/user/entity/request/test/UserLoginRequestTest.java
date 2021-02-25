@@ -2,7 +2,6 @@ package com.xyz.user.entity.request.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 
 import com.xyz.user.model.request.UserLoginRequest;
