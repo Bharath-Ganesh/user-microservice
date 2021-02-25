@@ -41,18 +41,24 @@ public class UserControllerTest {
 	/**
 	 * Creating request path
 	 */
-	String loginUserRequestPath = "src/test/resources/loginUserRequest" + ".json";
+	String loginUserRequestPath = "src/test/resources/loginUserRequest.json";
+
+	String registerUserRequestPath = "src/test/resources/registerUser.json";
 
 	/**
 	 * Creating Json object
 	 */
 	public static JSONObject loginUserRequestJson = null;
+	public static JSONObject registerUserRequestJson = null;
 
 	@Before
 	public void setup() throws Exception {
 		mvc = MockMvcBuilders.webAppContextSetup(context).build();
 
 		loginUserRequestJson = new JSONObject(FileUtils.readFileToString(new File(loginUserRequestPath), "UTF-8"));
+
+		registerUserRequestJson = new JSONObject(
+				FileUtils.readFileToString(new File(registerUserRequestPath), "UTF-8"));
 	}
 
 	@Test
@@ -62,6 +68,55 @@ public class UserControllerTest {
 		JSONObject jsonObject = loginUserRequestJson.getJSONObject("loginUserRequest");
 		request.content(jsonObject.toString());
 
+		MvcResult result = mvc.perform(request.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
+		Assert.assertEquals("Response matching", 200, result.getResponse().getStatus());
+	}
+
+	@Test
+	public void testRegisterUser() throws Exception {
+		String uri = baseUrl + "/register";
+		MockHttpServletRequestBuilder request = MockMvcRequestBuilders.post(uri);
+		JSONObject jsonObject = registerUserRequestJson.getJSONObject("registerUser");
+		request.content(jsonObject.toString());
+
+		MvcResult result = mvc.perform(request.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
+		Assert.assertEquals("Response matching", 200, result.getResponse().getStatus());
+	}
+
+	@Test
+	public void testSearchUserAvailability() throws Exception {
+		String uri = baseUrl + "/search?availablity=A&isLocation=false";
+		MockHttpServletRequestBuilder request = MockMvcRequestBuilders.get(uri);
+		MvcResult result = mvc.perform(request.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
+		Assert.assertEquals("Response matching", 200, result.getResponse().getStatus());
+	}
+
+	@Test
+	public void testSearchUserAndLocation() throws Exception {
+		String uri = baseUrl + "/search?availablity=A&isLocation=true&location=Trivandrum";
+		MockHttpServletRequestBuilder request = MockMvcRequestBuilders.get(uri);
+		MvcResult result = mvc.perform(request.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
+		Assert.assertEquals("Response matching", 200, result.getResponse().getStatus());
+	}
+	
+	
+	@Test
+	public void testUserEmailId() throws Exception {
+		String uri = baseUrl + "/userdetails?emailId=admin@gmail.com";
+		MockHttpServletRequestBuilder request = MockMvcRequestBuilders.get(uri);
+		MvcResult result = mvc.perform(request.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
+		Assert.assertEquals("Response matching", 200, result.getResponse().getStatus());
+	}
+	
+	@Test
+	public void testUserUsername() throws Exception {
+		String uri = baseUrl + "/userdetails?username=admin1234";
+		MockHttpServletRequestBuilder request = MockMvcRequestBuilders.get(uri);
 		MvcResult result = mvc.perform(request.contentType(MediaType.APPLICATION_JSON))
 				.andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
 		Assert.assertEquals("Response matching", 200, result.getResponse().getStatus());

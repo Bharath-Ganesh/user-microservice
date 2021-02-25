@@ -87,7 +87,6 @@ public class UserRegisterServiceImpl implements UserRegisterService {
 
 	@Override
 	public UserResponse registerUser(UserRegistrationRequest userRegReq) throws UserServiceException {
-		// TODO Auto-generated method stub
 		UserResponse userResponse = null;
 		String message = "";
 		if (null != userRegReq) {

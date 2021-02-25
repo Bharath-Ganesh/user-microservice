@@ -1,0 +1,11 @@
+{
+	"registerUser": {
+		"address": "Trivandrum",
+		"confirmPassword": "1234",
+		"emailId": "test@gmail.com",
+		"name": "test",
+		"password": "1234",
+		"role": "",
+		"username": "testuser1234"
+	}
+}

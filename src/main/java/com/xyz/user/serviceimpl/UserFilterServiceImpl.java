@@ -61,11 +61,11 @@ public class UserFilterServiceImpl implements UserFilterService {
 			// Custom exception
 		}
 		if (optionalUsersList.isPresent()) {
-			for ( User user : optionalUsersList.get()) {
-				UserResponse userResponse=convertEntityIntoResponse(user);
+			for (User user : optionalUsersList.get()) {
+				UserResponse userResponse = convertEntityIntoResponse(user);
 				userList.add(userResponse);
 			}
-			
+
 		}
 		logger.info("Exiting filterUsers method ");
 		return userList;
