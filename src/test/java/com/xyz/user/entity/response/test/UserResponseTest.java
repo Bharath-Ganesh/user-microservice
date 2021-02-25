@@ -1,16 +1,16 @@
 package com.xyz.user.entity.response.test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import org.junit.Test;
 
-import org.junit.jupiter.api.Test;
 
 import com.xyz.user.model.response.UserResponse;
 
 public class UserResponseTest {
 
 	@Test
-	void testUserResponseTest() {
+	public void testUserResponseTest() {
 		UserResponse userResponse = new UserResponse();
 		userResponse.setMessage("SUCCESS");
 		assertEquals(userResponse.getMessage(), "SUCCESS");
