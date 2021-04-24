@@ -1,3 +1,4 @@
+package com.xyz.user.controller.integration;
 //package com.xyz.user.controller.test;
 //
 //import static org.junit.jupiter.api.Assertions.assertNotNull;

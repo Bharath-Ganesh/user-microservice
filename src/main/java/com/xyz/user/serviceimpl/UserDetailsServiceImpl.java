@@ -19,7 +19,7 @@ import com.xyz.user.service.UserDetailsService;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-	private static final Logger logger = LoggerFactory.getLogger(UserDetailsUpdateServiceImpl.class);
+	private static final Logger Logger = LoggerFactory.getLogger(UserDetailsServiceImpl.class);
 
 	@Autowired
 	private UserRepository userRepository;
@@ -31,8 +31,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	 * @param user
 	 * @return UserResponse
 	 */
-	private UserResponse convertEntityIntoResponse(User user) {
-		logger.info("Inide convertEntityIntoResponse method : ");
+	public UserResponse convertEntityIntoResponse(User user) {
+		Logger.info("Inide convertEntityIntoResponse method : ");
 		UserResponse userResponse = new UserResponse();
 		if (null != user) {
 			userResponse.setUserId(user.getUserId());
@@ -42,7 +42,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			userResponse.setName(user.getName());
 			userResponse.setRole(user.getRole());
 		}
-		logger.info("Exiting convertEntityIntoResponse method : ");
+		Logger.info("Exiting convertEntityIntoResponse method : ");
 		return userResponse;
 
 	}
@@ -52,9 +52,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	 * @return UserResponse
 	 */
 	public UserResponse getUserDetails(String userId) throws UserServiceException {
-		// TODO Auto-generated method stub
 
-		logger.info("Inide getUserdetails method : Userid : {}", userId);
+		Logger.info("Inide getUserdetails method : Userid : {}", userId);
 		UserResponse userResponse = null;
 		if (!userId.isEmpty()) {
 
@@ -80,9 +79,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Override
 	public UserResponse getDetailsBasedOnUsernameOrEmailId(String username, String emailId) throws UserServiceException {
-		// TODO Auto-generated method stub
 
-		logger.info("Inide getDetailsBasedOnUsernameOrEmailId method : username : " + "{} && emaildId : {}", username,
+		Logger.info("Inide getDetailsBasedOnUsernameOrEmailId method : username : " + "{} && emaildId : {}", username,
 				emailId);
 		UserResponse userResponse = null;
 

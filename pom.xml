@@ -126,8 +126,10 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			
+				</plugins>
+			
 			<!-- Docker -->
-			<plugin>
+			 <!-- <plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
 				<version>1.4.10</version>
@@ -136,20 +138,59 @@
 						<id>default</id>
 						<goals>
 							<goal>build</goal>
-							<!-- <goal>push</goal> --> 
+							<goal>push</goal> 
 						</goals>
 					</execution>
 				</executions>
 				<configuration>
-					<repository>in28min/${project.artifactId}</repository>
+					<repository>dockerkuber10/${project.artifactId}</repository>
 					<tag>${project.version}</tag>
 					<skipDockerInfo>true</skipDockerInfo>
+					<pullNewerImage>false</pullNewerImage>
 				</configuration>
-			</plugin>
-			
+			</plugin> -->
+			 
 
-		</plugins>
+	
 	</build>
+	
+	<repositories>
+		<repository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 
 
 	<!-- <distributionManagement> <repository> <id>artifactory</id> <name>User_microservice_XYZ</name> 
